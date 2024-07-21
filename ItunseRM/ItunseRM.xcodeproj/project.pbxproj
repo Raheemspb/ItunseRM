@@ -11,6 +11,12 @@
 		AA05BAA02C4D51CF0061CE28 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AA05BA9F2C4D51CF0061CE28 /* RealmSwift */; };
 		AA05BAA32C4D51E40061CE28 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AA05BAA22C4D51E40061CE28 /* SnapKit */; };
 		AA05BAA52C4D51E40061CE28 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = AA05BAA42C4D51E40061CE28 /* SnapKit-Dynamic */; };
+		AA05BAA72C4D54BE0061CE28 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA05BAA62C4D54BE0061CE28 /* CollectionViewCell.swift */; };
+		AA05BAA92C4D54E90061CE28 /* RMRealmClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA05BAA82C4D54E90061CE28 /* RMRealmClass.swift */; };
+		AA05BAAB2C4D56180061CE28 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA05BAAA2C4D56180061CE28 /* NetworkManager.swift */; };
+		AA05BAAD2C4D56820061CE28 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA05BAAC2C4D56820061CE28 /* TabBarController.swift */; };
+		AA05BAAF2C4D56C00061CE28 /* AlbumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA05BAAE2C4D56C00061CE28 /* AlbumDetailsViewController.swift */; };
+		AA05BAB12C4D56D00061CE28 /* SearchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA05BAB02C4D56D00061CE28 /* SearchHistoryViewController.swift */; };
 		AA1D014E2C4D46F0001AC05C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D014D2C4D46F0001AC05C /* AppDelegate.swift */; };
 		AA1D01502C4D46F0001AC05C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D014F2C4D46F0001AC05C /* SceneDelegate.swift */; };
 		AA1D01522C4D46F0001AC05C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D01512C4D46F0001AC05C /* ViewController.swift */; };
@@ -20,6 +26,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA05BAA62C4D54BE0061CE28 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		AA05BAA82C4D54E90061CE28 /* RMRealmClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMRealmClass.swift; sourceTree = "<group>"; };
+		AA05BAAA2C4D56180061CE28 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		AA05BAAC2C4D56820061CE28 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		AA05BAAE2C4D56C00061CE28 /* AlbumDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewController.swift; sourceTree = "<group>"; };
+		AA05BAB02C4D56D00061CE28 /* SearchHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewController.swift; sourceTree = "<group>"; };
 		AA1D014A2C4D46F0001AC05C /* ItunseRM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItunseRM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1D014D2C4D46F0001AC05C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA1D014F2C4D46F0001AC05C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +79,12 @@
 				AA1D014D2C4D46F0001AC05C /* AppDelegate.swift */,
 				AA1D014F2C4D46F0001AC05C /* SceneDelegate.swift */,
 				AA1D01512C4D46F0001AC05C /* ViewController.swift */,
+				AA05BAA62C4D54BE0061CE28 /* CollectionViewCell.swift */,
+				AA05BAAA2C4D56180061CE28 /* NetworkManager.swift */,
+				AA05BAAC2C4D56820061CE28 /* TabBarController.swift */,
+				AA05BAAE2C4D56C00061CE28 /* AlbumDetailsViewController.swift */,
+				AA05BAB02C4D56D00061CE28 /* SearchHistoryViewController.swift */,
+				AA05BAA82C4D54E90061CE28 /* RMRealmClass.swift */,
 				AA1D01532C4D46F0001AC05C /* Main.storyboard */,
 				AA1D01562C4D46F2001AC05C /* Assets.xcassets */,
 				AA1D01582C4D46F2001AC05C /* LaunchScreen.storyboard */,
@@ -156,8 +174,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA05BAAB2C4D56180061CE28 /* NetworkManager.swift in Sources */,
 				AA1D01522C4D46F0001AC05C /* ViewController.swift in Sources */,
+				AA05BAAF2C4D56C00061CE28 /* AlbumDetailsViewController.swift in Sources */,
 				AA1D014E2C4D46F0001AC05C /* AppDelegate.swift in Sources */,
+				AA05BAA72C4D54BE0061CE28 /* CollectionViewCell.swift in Sources */,
+				AA05BAAD2C4D56820061CE28 /* TabBarController.swift in Sources */,
+				AA05BAA92C4D54E90061CE28 /* RMRealmClass.swift in Sources */,
+				AA05BAB12C4D56D00061CE28 /* SearchHistoryViewController.swift in Sources */,
 				AA1D01502C4D46F0001AC05C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
