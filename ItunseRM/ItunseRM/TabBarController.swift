@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TabBarController: UITabBarController {
 
@@ -13,6 +14,7 @@ class TabBarController: UITabBarController {
     let networkManager = NetworkManager()
     let searchHistoryViewController = SearchHistoryViewController()
     let viewController = ViewController()
+    let searchRealmManager = SearchRealmManager.shared
     var albums = [Album]()
 
     override func viewDidLoad() {
@@ -20,9 +22,11 @@ class TabBarController: UITabBarController {
         view.backgroundColor = .white
         setupViewControllers()
         setupSearchBar()
-        if let searchTexts = networkManager.getSearchTextFromKeychain() {
-            performInitialSearch(with: searchTexts.last!)
-        }
+
+
+//        if let searchTexts = networkManager.getSearchTextFromKeychain() {
+//            performInitialSearch(with: searchTexts.last!)
+//        }
     }
 
     private func setupSearchBar() {
@@ -42,7 +46,6 @@ class TabBarController: UITabBarController {
         historyNavController.tabBarItem = UITabBarItem(title: "History", image: UIImage(systemName: "clock"), tag: 1)
 
         viewControllers = [searchNavController, historyNavController]
-
     }
 
     func performInitialSearch(with searchText: String) {
@@ -59,20 +62,19 @@ extension TabBarController: UISearchBarDelegate {
             return
         }
 
-        networkManager.getCharacter(albumName: searchText) { [weak self] albums in
 
-            if let getAlbums = self?.networkManager.getAlbumsFromKeychain() {
-                print("getAlbums count", getAlbums.count)
-                self?.albums = getAlbums
-                if let searchTexts = self?.networkManager.getSearchTextFromKeychain() {
-                    self?.searchHistoryViewController.searchHistory = searchTexts
-                }
-            } else {
+        DispatchQueue.main.async {
+            self.searchRealmManager.addSearchText(searchText)
+        }
+//
+////            self.searchHistoryViewController.searchHistory = self.searchRealmManager.getSearchTexts()
+////            self.searchHistoryViewController.tableView.reloadData()
+////            print(" weee \(self.searchHistoryViewController.searchHistory.count), \(self.searchRealmManager.getSearchTexts())")
+//        }
+
+        networkManager.getAlbums(albumName: searchText) { [weak self] albums in
                 self?.albums = albums
-            }
-
-            self?.networkManager.saveAlbumToKeychain(albums)
-            self?.networkManager.saveSearchTextToKeychain(searchText: searchText)
+            print(albums.count)
             DispatchQueue.main.async {
                 self?.viewController.albums = albums
                 self?.viewController.collectionView.reloadData()

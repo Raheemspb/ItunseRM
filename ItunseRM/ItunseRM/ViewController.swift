@@ -7,25 +7,38 @@
 
 import UIKit
 import SnapKit
+import RealmSwift
 
 final class ViewController: UIViewController {
 
     var searchBar = UISearchBar()
     var collectionView: UICollectionView!
     let networkManager = NetworkManager()
+    let realmManager = RealmManager()
     let searchHistoryViewController = SearchHistoryViewController()
+
     var albums = [Album]()
+
+    var albums2: [Album] {
+        return self.realmManager.getAlbums()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-    }
+        print(albums.count)
 
-    private func setupSearchBar() {
-        searchBar.placeholder = "Search"
-//        searchBar.delegate = self
-        navigationItem.titleView = searchBar
-        }
+//        DispatchQueue.global(qos: .utility).async {
+//            self.networkManager.getAlbums(albumName: "Баста") { [weak self] albums in
+//                self?.albums = albums
+//
+//                DispatchQueue.main.async {
+//                    self?.collectionView.reloadData()
+//                }
+//            }
+//        }
+
+    }
 
     private func setupCollectionView() {
         collectionView = UICollectionView(
@@ -55,13 +68,16 @@ final class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        albums.count
+        albums2.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.reuseId, for: indexPath) as? CollectionViewCell else { return UICollectionViewCell() }
 
-        let album = albums[indexPath.item]
+//        let album = albums2[indexPath.item]
+//        guard let imageUrl = URL(string: album.albumImageURLRealm) else { return cell }
+
+        let album = albums2[indexPath.item]
         guard let imageUrl = URL(string: album.artworkUrl100) else { return cell }
 
         DispatchQueue.global(qos: .utility).async {
@@ -84,9 +100,9 @@ extension ViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let albumDetailsViewController = AlbumDetailsViewController()
-        let album = albums[indexPath.item]
+        let album = albums2[indexPath.item]
         albumDetailsViewController.album = album
-        albumDetailsViewController.title = album.artistName
+        albumDetailsViewController.title = album.collectionName
 
         navigationController?.pushViewController(albumDetailsViewController, animated: false)
     }

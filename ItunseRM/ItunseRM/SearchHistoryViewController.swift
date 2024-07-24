@@ -10,12 +10,23 @@ import UIKit
 class SearchHistoryViewController: UIViewController {
 
     let identifire = "searchCell"
+    let searchHistoryRealm = SearchRealmManager.shared
     var searchHistory = [String]()
 
     var tableView = UITableView(frame: .zero, style: .plain)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+    }
+
+    override func viewWillAppear(_ animated: Bool) { 
+        super.viewWillAppear(animated)
+
+        DispatchQueue.main.async {
+            self.searchHistory = self.searchHistoryRealm.getSearchTexts()
+            self.tableView.reloadData()
+        }
     }
 
     private func setup() {

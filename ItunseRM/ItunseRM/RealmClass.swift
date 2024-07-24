@@ -8,14 +8,15 @@
 import Foundation
 import RealmSwift
 
-class RMRealmClass: Object {
-    @objc dynamic var personIDRealm = String()
+class RealmClass: Object {
+    @objc dynamic var personIDRealm = Int()
     @objc dynamic var albumImageURLRealm = String()
     @objc dynamic var albumLabelRealm = String()
     @objc dynamic var singerLabelRealm = String()
-    @objc dynamic var trackCountLabelRealm = String()
+    @objc dynamic var trackCountLabelRealm = Int()
 
     override static func primaryKey() -> String? {
         return "personIDRealm"
     }
 }
+
