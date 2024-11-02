@@ -27,17 +27,6 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         print(albums.count)
-
-//        DispatchQueue.global(qos: .utility).async {
-//            self.networkManager.getAlbums(albumName: "Баста") { [weak self] albums in
-//                self?.albums = albums
-//
-//                DispatchQueue.main.async {
-//                    self?.collectionView.reloadData()
-//                }
-//            }
-//        }
-
     }
 
     private func setupCollectionView() {
@@ -73,9 +62,6 @@ extension ViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.reuseId, for: indexPath) as? CollectionViewCell else { return UICollectionViewCell() }
-
-//        let album = albums2[indexPath.item]
-//        guard let imageUrl = URL(string: album.albumImageURLRealm) else { return cell }
 
         let album = albums2[indexPath.item]
         guard let imageUrl = URL(string: album.artworkUrl100) else { return cell }

@@ -4,6 +4,8 @@
 //
 //  Created by Рахим Габибли on 23.07.2024.
 //
+// swiftlint:disable force_cast
+// swiftlint:disable force_try
 
 import Foundation
 import RealmSwift
@@ -55,8 +57,5 @@ class RealmManager {
         return albums
     }
 
-    func saveSearchTextToRealm(_ searchText: String) {
-
-    }
-
+    func saveSearchTextToRealm(_ searchText: String) {}
 }

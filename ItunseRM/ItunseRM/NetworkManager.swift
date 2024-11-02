@@ -4,6 +4,8 @@
 //
 //  Created by Рахим Габибли on 21.07.2024.
 //
+// swiftlint:disable force_cast
+// swiftlint:disable force_try
 
 import Foundation
 import RealmSwift
@@ -20,13 +22,9 @@ struct Album: Codable {
     let trackCount: Int
 }
 
-
-
 class NetworkManager {
-
     static let shared = NetworkManager()
     let realmManager = RealmManager()
-
 
     func fetchAlbum(albumName: String) -> String {
         let url = "https://itunes.apple.com/search?term=\(albumName)&entity=album&attribute=albumTerm"

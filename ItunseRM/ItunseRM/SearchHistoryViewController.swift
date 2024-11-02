@@ -20,7 +20,7 @@ class SearchHistoryViewController: UIViewController {
         setup()
     }
 
-    override func viewWillAppear(_ animated: Bool) { 
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         DispatchQueue.main.async {
@@ -56,6 +56,4 @@ extension SearchHistoryViewController: UITableViewDataSource {
     }
 }
 
-extension SearchHistoryViewController: UITableViewDelegate {
-
-}
+extension SearchHistoryViewController: UITableViewDelegate {}

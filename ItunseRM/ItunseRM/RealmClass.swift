@@ -19,4 +19,3 @@ class RealmClass: Object {
         return "personIDRealm"
     }
 }
-

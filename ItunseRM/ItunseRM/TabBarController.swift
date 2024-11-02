@@ -22,11 +22,6 @@ class TabBarController: UITabBarController {
         view.backgroundColor = .white
         setupViewControllers()
         setupSearchBar()
-
-
-//        if let searchTexts = networkManager.getSearchTextFromKeychain() {
-//            performInitialSearch(with: searchTexts.last!)
-//        }
     }
 
     private func setupSearchBar() {
@@ -40,7 +35,13 @@ class TabBarController: UITabBarController {
 
     private func setupViewControllers() {
         let searchNavController = UINavigationController(rootViewController: viewController)
-        searchNavController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
+        searchNavController.tabBarItem = UITabBarItem(
+            title: "Search",
+            image: UIImage(
+                systemName: "magnifyingglass"
+            ),
+            tag: 0
+        )
 
         let historyNavController = UINavigationController(rootViewController: searchHistoryViewController)
         historyNavController.tabBarItem = UITabBarItem(title: "History", image: UIImage(systemName: "clock"), tag: 1)
@@ -54,7 +55,6 @@ class TabBarController: UITabBarController {
    }
 }
 
-
 extension TabBarController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -62,15 +62,9 @@ extension TabBarController: UISearchBarDelegate {
             return
         }
 
-
         DispatchQueue.main.async {
             self.searchRealmManager.addSearchText(searchText)
         }
-//
-////            self.searchHistoryViewController.searchHistory = self.searchRealmManager.getSearchTexts()
-////            self.searchHistoryViewController.tableView.reloadData()
-////            print(" weee \(self.searchHistoryViewController.searchHistory.count), \(self.searchRealmManager.getSearchTexts())")
-//        }
 
         networkManager.getAlbums(albumName: searchText) { [weak self] albums in
                 self?.albums = albums
@@ -81,7 +75,5 @@ extension TabBarController: UISearchBarDelegate {
                 self?.searchHistoryViewController.tableView.reloadData()
             }
         }
-
-//        searchBar.resignFirstResponder()
     }
 }
